@@ -1,7 +1,9 @@
-#!/usr/bin/python3
-"""A class that defines a rectangle"""
+#!/usr/bin/env bash
+# Configures an Ubuntu server as follows:
+#   - localhost resolves to 127.0.0.2
+#   - facebook.com resolves to 8.8.8.8
 
-
-class Rectangle:
-    """An empty class that represents a rectangle"""
-    pass
+cp /etc/hosts new_hosts
+sed -i s/^127.*/"127.0.0.2 localhost"/ new_hosts
+echo "8.8.8.8 facebook.com" >> new_hosts
+cp new_hosts /etc/hosts
